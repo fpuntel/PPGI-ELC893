@@ -48,9 +48,9 @@ Speedup | 1  | 1.19918  | 1.20912
 A análise completa dos resultados e do código utilizado será feito na próxima seção.
 
 ### Análise
-Com os resultados obtidos é visto que o experimento com 2 threads teve uma melhora de apenas 16,6% e com 4 threads a melhor foi de aproximadamente 17,3%, isso significa que mesmo que colocarmos dobrados o número de 2 para 4 threas, o resultado não será expressivo. 
+Com os resultados obtidos é visto que o experimento com 2 threads teve uma melhora de apenas 16,6% e com 4 threads a melhor foi de aproximadamente 17,3%, isso significa que mesmo que colocarmos o número de 2 para 4 threas, o resultado não será expressivo. 
 
-Uma das possíveis razões para o código *quicksort* não obter um melhor desempenho utilizando uma quantidade maior de threads, deve-se ao fato de como é o método de ordenação é implementado, sendo que, em trabalhos como Al-Dabbagh e Barnouti (2016) obtiveram resultados positivos de *speedup* avaliando o mesmo método de ordenação. 
+Uma das possíveis razões para o código *quicksort* não obter um melhor desempenho utilizando uma quantidade maior de threads, deve-se ao fato de como o método de ordenação é implementado, sendo que, em trabalhos como Al-Dabbagh e Barnouti (2016) obtiveram resultados positivos de *speedup* avaliando o mesmo método de ordenação. 
 
 Outra das possíveis causas destes resultados, é o controle de granularidade do *openMP* não estar configurado de maneira adequada, Silva (2011) apresenta experimentos utilizando um novo controle de granularidade para o *quicksort*, onde relata que em diversos casos, sem o controle de granularidade, fica evitente que o *speedup* é elevado. 
 
