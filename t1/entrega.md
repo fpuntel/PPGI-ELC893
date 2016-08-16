@@ -54,7 +54,7 @@ Uma das possíveis razões para o código *quicksort* não obter um melhor desem
 
 Outra das possíveis causas destes resultados, é o controle de granularidade do *openMP* não estar configurado de maneira adequada, Silva (2011) apresenta experimentos utilizando um novo controle de granularidade para o *quicksort*, onde relata que em diversos casos, sem o controle de granularidade, fica evitente que o *speedup* é elevado. 
 
-Devido a busca pelo pivô central de cada grupo de dados ser feita pelo código principal, e somente a busca da posição deste pivô ser feita pela thread, o ganho realmente não será expressivo.
+Devido a busca pelo pivô central de cada grupo de dados e união dos resultados de cada thread serem feita pelo código principal, e somente a ordenação de um grupo de dados thread, o ganho realmente não será expressivo.
 
 ###  Referências
 
