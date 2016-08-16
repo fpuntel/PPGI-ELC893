@@ -52,7 +52,7 @@ Com os resultados obtidos é visto que o experimento com 2 threads teve uma melh
 
 Uma das possíveis razões para o código *quicksort* não obter um melhor desempenho utilizando uma quantidade maior de threads, deve-se ao fato de como o método de ordenação é implementado, sendo que, em trabalhos como Al-Dabbagh e Barnouti (2016) obtiveram resultados positivos de *speedup* avaliando o mesmo método de ordenação. 
 
-Outra das possíveis causas destes resultados, é o controle de granularidade do *openMP* não estar configurado de maneira adequada, Silva (2011) apresenta experimentos utilizando um novo controle de granularidade para o *quicksort*, onde relata que em diversos casos, sem o controle de granularidade, fica evitente que o *speedup* é elevado. 
+Outra das possíveis causas destes resultados, é controle do balanceamento de carga do *openMP*. Também é preciso observar o controle de granularidade, Silva (2011) apresenta experimentos utilizando um novo controle de granularidade para o *quicksort*, onde relata que em diversos casos, sem o controle de granularidade, fica evitente que o *speedup* é elevado. 
 
 Devido a busca pelo pivô central de cada grupo de dados e união dos resultados de cada thread serem feita pelo código principal, e somente a ordenação de um grupo de dados thread, o ganho realmente não será expressivo.
 
