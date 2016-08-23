@@ -47,6 +47,13 @@ SUBROUTINE inicio()
                  call random_number(vGl(i,j))
             enddo
         enddo
+        
+        ! Matriz qGl 
+        do i = 1, ni - 1 
+            do j = 1, nj - 1 
+                call random_number(qGl(i,j))
+            enddo
+        enddo
 
 	print *, "#### Final da criacao das matrizes ####"
 	RETURN
