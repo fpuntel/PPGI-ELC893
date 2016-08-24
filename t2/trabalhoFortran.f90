@@ -17,7 +17,7 @@ MODULE KfsFunctions
      real uGl(10, 10)
      real vgl(10,10)
 
-SUBROUTINE inicio()
+    SUBROUTINE inicio()
 	CALL criacaoMatrizes()
 	    !model2d(dx, dy, dt, ni, nj, Hmean, rq, ru, rv, f, g)
 	    !model2d(f , f , i , i , i , i    , d , d , d , d, d)	
@@ -26,7 +26,7 @@ SUBROUTINE inicio()
 	CALL model2d(real (1.0, 8), real (1.0, 8), 1, ni, nj, 1, real (1.0, 8), real (1.0, 8), real (1.0, 8), real (1.0, 8), real (1.0, 8))
 	print *, "#### Final do Model2d ####"
 	RETURN
-   END SUBROUTINE
+    END SUBROUTINE
 
     SUBROUTINE criacaoMatrizes()
 	integer :: i, j			
@@ -57,6 +57,6 @@ SUBROUTINE inicio()
 
 	print *, "#### Final da criacao das matrizes ####"
 	RETURN
-   END SUBROUTINE
+    END SUBROUTINE
 
 END MODULE
