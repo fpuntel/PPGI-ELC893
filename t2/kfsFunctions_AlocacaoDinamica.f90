@@ -21,9 +21,10 @@ END PROGRAM main
 MODULE KfsFunctions
 !    use Globais
      integer*4 nj/9500/, ni/9500/
-     real qGl(9500, 9500)
-     real uGl(9500, 9500)
-     real vgl(9500, 9500)
+     double precision, allocatable, dimension(:,:) :: qGl, uGl, vgl
+     !real qGl(9500, 9500)
+     !real uGl(9500, 9500)
+     !real vgl(9500, 9500)
      character(10) :: time, time2 ! Timer
 
 CONTAINS
@@ -80,6 +81,13 @@ CONTAINS
 
 	RETURN
    END SUBROUTINE
+
+    ! Alocacao dinamica matrizes
+    SUBROUTINE alocacacao()
+	allocate(qGl(ni,nj))
+	allocate(uGl(ni,nj))
+	allocate(vgl(ni,nj))
+    END SUBROUTINE
 
     ! Criacao valores rand para matrizes
     SUBROUTINE matrizesRand()
