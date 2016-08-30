@@ -158,71 +158,85 @@ CONTAINS
         dqdx=0.0
         dqdy=0.0
 
-        !Calculo dos divergentes na direcao x
-        do i = 1, ni - 1 
-            do j = 1, nj - 1 
-                divx(i,j)  = cx * (uGl(i+1, j) - uGl(i, j))
-            enddo
-        enddo
-        do j = 1, nj - 1
-            divx(ni,j) = cx * (uGl(1,j) - uGl(ni,j))
-        enddo
+	! Parte Paralelizada
+	!$OMP PARALLEL SHARED(uGl,vGl)
+		!$OMP SECTIONS
 
-        !Calculo dos divergentes na direcao y
-        do i = 1, ni !i = linha
-            do j = 1, nj - 1 !j = coluna
-                divy(i, j)  = cy * (vGl(i, j+1) - vGl(i, j))
-            enddo
-        enddo
-        do j = 1, nj - 1 !j = coluna
-            divy(ni, j) = cy * (uGl(1, j) - uGl(ni, j))
-        enddo
-	! End
+	 	!$OMP SECTION
+		!Calculo dos divergentes na direcao x
+		do i = 1, ni - 1 
+		    do j = 1, nj - 1 
+		        divx(i,j)  = cx * (uGl(i+1, j) - uGl(i, j))
+		    enddo
+		enddo
+		do j = 1, nj - 1
+		    divx(ni,j) = cx * (uGl(1,j) - uGl(ni,j))
+		enddo
 
-        do i = 1, ni !i = linha
-            do j = 1, nj-1 !j = coluna
-                qGl(i,j) = qGl(i,j) + real(dt) *(-(real(Hmean)) * (divx(i,j) + divy(i,j)) - (rq * qGl(i,j)))
-            enddo
-        enddo
+		!$OMP SECTION
+		!Calculo dos divergentes na direcao y
+		do i = 1, ni !i = linha
+		    do j = 1, nj - 1 !j = coluna
+		        divy(i, j)  = cy * (vGl(i, j+1) - vGl(i, j))
+		    enddo
+		enddo
+		do j = 1, nj - 1 !j = coluna
+		    divy(ni, j) = cy * (uGl(1, j) - uGl(ni, j))
+		enddo
+		!$OMP END SECTIONS NOWAIT
 
-        do i = 2, ni !i = linha
-            do j = 1, nj-1 ! j = coluna
-                dqdx(i,j) = cx * (qGl(i,j) - qGl(i-1,j))
-            enddo
-        enddo
-        do j = 1, nj-1 ! j = coluna
-            dqdx(1,j) = cx * (qGl(1,j) - qGl(ni,j))
-        enddo
+	!$OMP END PARALLEL
 
-        do i = 1, ni !i = linha
-            do j = 2, nj-1 !j = coluna
-                dqdy(i,j)= cy * (qGl(i,j) - qGl(i,j-1))
-            enddo
-        enddo
-	! ******
-	! dpdy esta indo soh de 2 a ni,  1 a nj-1	
-	! sendo que dpdy tem dimensoes ni, nj
-	! talvez falte mais um 'do', como eh 
-	! feito no dpdx
-	! ******
+	
+	! Segunda parte paralelizada
+	!$OMP PARALLEL SHARED(qGl,Hmean, dt, divx, divy, rq)
+	!$OMP SECTIONS
 
-        do i = 1, ni-1 !i = linha
-            do j = 2, nj-1!j = coluna
-                ubar(i,j) = 0.25 * (uGl(i+1,j) + uGl(i,j) + uGl(i+1,j-1) + uGl(i,j-1))
-            enddo
-        enddo
-        do j = 2, nj-1!j = coluna
-            ubar(ni,j) = 0.25 * (uGl(1,j) + uGl(ni,j) + uGl(1,j-1) + uGl(ni,j-1))
-        enddo
+	 	!$OMP SECTION
+		do i = 1, ni !i = linha
+		    do j = 1, nj-1 !j = coluna
+		        qGl(i,j) = qGl(i,j) + real(dt) *(-(real(Hmean)) * (divx(i,j) + divy(i,j)) - (rq * qGl(i,j)))
+		    enddo
+		enddo
 
-        do i = 2, ni !j = coluna
-            do j = 1, nj-1 !i = linha
-                vbar(i,j) = 0.25 * (vGl(i,j+1) + vGl(i,j) + vGl(i-1,j+1) + vGl(i-1,j))
-            enddo
-        enddo
-        do j = 1, nj-1 !i = linha
-            vbar(1,j) = 0.25 * (vGl(1,j+1) + vGl(1,j) + vGl(ni,j+1) + vGl(ni,j))
-        enddo
+		do i = 2, ni !i = linha
+		    do j = 1, nj-1 ! j = coluna
+		        dqdx(i,j) = cx * (qGl(i,j) - qGl(i-1,j))
+		    enddo
+		enddo
+		do j = 1, nj-1 ! j = coluna
+		    dqdx(1,j) = cx * (qGl(1,j) - qGl(ni,j))
+		enddo
+
+		do i = 1, ni !i = linha
+		    do j = 2, nj-1 !j = coluna
+		        dqdy(i,j)= cy * (qGl(i,j) - qGl(i,j-1))
+		    enddo
+		enddo
+
+
+		!$OMP SECTION
+		do i = 1, ni-1 !i = linha
+		    do j = 2, nj-1!j = coluna
+		        ubar(i,j) = 0.25 * (uGl(i+1,j) + uGl(i,j) + uGl(i+1,j-1) + uGl(i,j-1))
+		    enddo
+		enddo
+		do j = 2, nj-1!j = coluna
+		    ubar(ni,j) = 0.25 * (uGl(1,j) + uGl(ni,j) + uGl(1,j-1) + uGl(ni,j-1))
+		enddo
+
+		do i = 2, ni !j = coluna
+		    do j = 1, nj-1 !i = linha
+		        vbar(i,j) = 0.25 * (vGl(i,j+1) + vGl(i,j) + vGl(i-1,j+1) + vGl(i-1,j))
+		    enddo
+		enddo
+		do j = 1, nj-1 !i = linha
+		    vbar(1,j) = 0.25 * (vGl(1,j+1) + vGl(1,j) + vGl(ni,j+1) + vGl(ni,j))
+		enddo
+		!$OMP END SECTIONS NOWAIT
+
+	!$OMP END PARALLEL
+
 
         !Atualizando u
         do i  = 1, ni !i = linha

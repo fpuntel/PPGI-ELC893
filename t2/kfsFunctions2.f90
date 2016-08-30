@@ -1,17 +1,12 @@
 !***********************************************************************
-! Funções: main (), inicio() e criacaoMatrizes()
-!	Autor: Fernando Emilio Puntel
-! 	Programa de Pós-Graduação em Informática (Semestre 2016/2)
-!	Universidade Federal de Santa Maria
-! Funções: droplet(), model2d()
-! 	Traducao da funcao ndgrid do Matlab para o Fortran
-! 	Tradutora: Sabrina Sambati (CAP/INPE)
+! Traducao da funcao ndgrid do Matlab para o Fortran
+! Tradutora: Sabrina Sambati (CAP/INPE)
 !***********************************************************************
 
 PROGRAM main
 	USE KfsFunctions
 	real :: start, finish
-        
+
 	call cpu_time(start)
 	CALL inicio ()
         call cpu_time(finish)
@@ -21,10 +16,10 @@ END PROGRAM main
 MODULE KfsFunctions
 !    use Globais
      integer*4 nj/9500/, ni/9500/
+
      real qGl(9500, 9500)
      real uGl(9500, 9500)
      real vgl(9500, 9500)
-     character(10) :: time, time2 ! Timer
 
 CONTAINS
 
@@ -66,47 +61,53 @@ CONTAINS
 
     END SUBROUTINE !droplet
 
-    ! Inicio 
     SUBROUTINE inicio()
-
-	CALL matrizesRand()
+	
+	CALL criacaoMatrizes()
 
 	print *, "#### Inicio do Model2d ####"
 	!model2d(dx, dy, dt, ni, nj, Hmean, rq, ru, rv, f, g)
 	!model2d(f , f , i , i , i , i    , d , d , d , d, d)	
+	!real(x,8)
 	CALL model2d(real (1.0, 8), real (1.0, 8), 1, ni, nj, 1, real (1.0, 8), real (1.0, 8), real (1.0, 8), real (1.0, 8), real (1.0, 8))
 	print *, "#### Final do Model2d ####"
 
 	RETURN
    END SUBROUTINE
 
-    ! Criacao valores rand para matrizes
-    SUBROUTINE matrizesRand()
+    SUBROUTINE criacaoMatrizes()
 	integer :: i, j			
 	print *, "#### Inicio da criacao das Matrizes ####"
 
 	call random_seed() 
 
-	! Matriz uGl
-        do i = 1, ni - 1 
-            do j = 1, nj - 1 
-                call random_number(uGl(i,j)) 
-            enddo
-        enddo
+	!$OMP PARALLEL
+		!$OMP DO
+		! Matriz uGl
+		do i = 1, ni - 1 
+		    do j = 1, nj - 1 
+		        call random_number(uGl(i,j)) 
+		    enddo
+		enddo
+		!$OMP END DO
 
-	! Matriz vGl
-        do i = 1, ni - 1 
-            do j = 1, nj - 1 
-                 call random_number(vGl(i,j))
-            enddo
-        enddo
+		!$OMP DO
+		do i = 1, ni - 1 
+		    do j = 1, nj - 1 
+		         call random_number(vGl(i,j))
+		    enddo
+		enddo
+		!$OMP END DO
 
-	! Matriz qGl 
-         do i = 1, ni - 1 
-            do j = 1, nj - 1 
-                call random_number(qGl(i,j))
-            enddo
-        enddo
+		!$OMP DO
+		! Matriz qGl 
+		 do i = 1, ni - 1 
+		    do j = 1, nj - 1 
+		        call random_number(qGl(i,j))
+		    enddo
+		enddo	
+		!$OMP END DO
+	!$OMP END PARALLEL
 
 	print *, "#### Final da criacao das matrizes ####"
 	RETURN
@@ -158,26 +159,42 @@ CONTAINS
         dqdx=0.0
         dqdy=0.0
 
-        !Calculo dos divergentes na direcao x
-        do i = 1, ni - 1 
-            do j = 1, nj - 1 
-                divx(i,j)  = cx * (uGl(i+1, j) - uGl(i, j))
-            enddo
-        enddo
-        do j = 1, nj - 1
-            divx(ni,j) = cx * (uGl(1,j) - uGl(ni,j))
-        enddo
+	! Primeira parte paralelizada	
+	!$OMP PARALLEL
 
-        !Calculo dos divergentes na direcao y
-        do i = 1, ni !i = linha
-            do j = 1, nj - 1 !j = coluna
-                divy(i, j)  = cy * (vGl(i, j+1) - vGl(i, j))
-            enddo
-        enddo
-        do j = 1, nj - 1 !j = coluna
-            divy(ni, j) = cy * (uGl(1, j) - uGl(ni, j))
-        enddo
-	! End
+		!$OMP DO
+		!Calculo dos divergentes na direcao x
+		do i = 1, ni - 1 
+		    do j = 1, nj - 1 
+		        divx(i,j)  = cx * (uGl(i+1, j) - uGl(i, j))
+		    enddo
+		enddo
+		!$OMP END DO
+
+		!$OMP DO
+		do j = 1, nj - 1
+		    divx(ni,j) = cx * (uGl(1,j) - uGl(ni,j))
+		enddo
+		!$OMP END DO
+
+		!$OMP DO
+		!Calculo dos divergentes na direcao y
+		do i = 1, ni !i = linha
+		    do j = 1, nj - 1 !j = coluna
+		        divy(i, j)  = cy * (vGl(i, j+1) - vGl(i, j))
+		    enddo
+		enddo
+		!$OMP END DO
+
+		!$OMP DO
+		do j = 1, nj - 1 !j = coluna
+		    divy(ni, j) = cy * (uGl(1, j) - uGl(ni, j))
+		enddo
+		!$OMP END DO
+
+	!$OMP END PARALLEL 
+	!End
+
 
         do i = 1, ni !i = linha
             do j = 1, nj-1 !j = coluna
@@ -185,45 +202,63 @@ CONTAINS
             enddo
         enddo
 
-        do i = 2, ni !i = linha
-            do j = 1, nj-1 ! j = coluna
-                dqdx(i,j) = cx * (qGl(i,j) - qGl(i-1,j))
-            enddo
-        enddo
-        do j = 1, nj-1 ! j = coluna
-            dqdx(1,j) = cx * (qGl(1,j) - qGl(ni,j))
-        enddo
 
-        do i = 1, ni !i = linha
-            do j = 2, nj-1 !j = coluna
-                dqdy(i,j)= cy * (qGl(i,j) - qGl(i,j-1))
-            enddo
-        enddo
-	! ******
-	! dpdy esta indo soh de 2 a ni,  1 a nj-1	
-	! sendo que dpdy tem dimensoes ni, nj
-	! talvez falte mais um 'do', como eh 
-	! feito no dpdx
-	! ******
+	!$OMP PARALLEL
 
-        do i = 1, ni-1 !i = linha
-            do j = 2, nj-1!j = coluna
-                ubar(i,j) = 0.25 * (uGl(i+1,j) + uGl(i,j) + uGl(i+1,j-1) + uGl(i,j-1))
-            enddo
-        enddo
-        do j = 2, nj-1!j = coluna
-            ubar(ni,j) = 0.25 * (uGl(1,j) + uGl(ni,j) + uGl(1,j-1) + uGl(ni,j-1))
-        enddo
+	!$OMP DO
+		do i = 2, ni !i = linha
+		    do j = 1, nj-1 ! j = coluna
+		        dqdx(i,j) = cx * (qGl(i,j) - qGl(i-1,j))
+		    enddo
+		enddo
+		!$OMP END DO
 
-        do i = 2, ni !j = coluna
-            do j = 1, nj-1 !i = linha
-                vbar(i,j) = 0.25 * (vGl(i,j+1) + vGl(i,j) + vGl(i-1,j+1) + vGl(i-1,j))
-            enddo
-        enddo
-        do j = 1, nj-1 !i = linha
-            vbar(1,j) = 0.25 * (vGl(1,j+1) + vGl(1,j) + vGl(ni,j+1) + vGl(ni,j))
-        enddo
+		!$OMP DO
+		do j = 1, nj-1 ! j = coluna
+		    dqdx(1,j) = cx * (qGl(1,j) - qGl(ni,j))
+		enddo
+		!$OMP END DO
 
+		!$OMP DO
+		do i = 1, ni !i = linha
+		    do j = 2, nj-1 !j = coluna
+		        dqdy(i,j)= cy * (qGl(i,j) - qGl(i,j-1))
+		    enddo
+		enddo
+		!$OMP END DO	
+	!$OMP END PARALLEL
+
+
+	!$OMP PARALLEL
+		!$OMP DO
+		do i = 1, ni-1 !i = linha
+		    do j = 2, nj-1!j = coluna
+		        ubar(i,j) = 0.25 * (uGl(i+1,j) + uGl(i,j) + uGl(i+1,j-1) + uGl(i,j-1))
+		    enddo
+		enddo
+		!$OMP END DO
+
+		!$OMP DO
+		do j = 2, nj-1!j = coluna
+		    ubar(ni,j) = 0.25 * (uGl(1,j) + uGl(ni,j) + uGl(1,j-1) + uGl(ni,j-1))
+		enddo
+		!$OMP END DO
+
+		!$OMP DO
+		do i = 2, ni !j = coluna
+		    do j = 1, nj-1 !i = linha
+		        vbar(i,j) = 0.25 * (vGl(i,j+1) + vGl(i,j) + vGl(i-1,j+1) + vGl(i-1,j))
+		    enddo
+		enddo
+		!$OMP END DO
+	
+		!$OMP DO
+		do j = 1, nj-1 !i = linha
+		    vbar(1,j) = 0.25 * (vGl(1,j+1) + vGl(1,j) + vGl(ni,j+1) + vGl(ni,j))
+		enddo
+		!$OMP END DO
+	!$OMP END PARALLEL
+	
         !Atualizando u
         do i  = 1, ni !i = linha
             do j = 1, nj-1 !j = coluna

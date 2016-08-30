@@ -1,0 +1,28 @@
+NORMAL
+Time = 23.144 seconds.
+Time = 23.152 seconds.
+Time = 23.412 seconds.
+Time = 23.728 seconds.
+Time = 23.352 seconds.
+Time = 23.116 seconds.
+Time = 23.072 seconds.
+Time = 23.104 seconds.
+Time = 23.112 seconds.
+Time = 23.132 seconds.
+Media = 23.2328
+
+PARALLEL DO
+Time = 18.892 seconds.
+Time = 18.620 seconds.
+Time = 18.756 seconds.
+Time = 18.644 seconds.
+Time = 18.716 seconds.
+Time = 18.612 seconds.
+Time = 19.000 seconds.
+Time = 18.528 seconds.
+Time = 18.696 seconds.
+Time = 18.680 seconds.
+Media = 18.7144
+
+
+
