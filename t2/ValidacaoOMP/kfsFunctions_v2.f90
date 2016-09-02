@@ -1,6 +1,11 @@
 !***********************************************************************
-! Traducao da funcao ndgrid do Matlab para o Fortran
-! Tradutora: Sabrina Sambati (CAP/INPE)
+! Funções: main (), inicio() e criacaoMatrizes()
+!	Autor: Fernando Emilio Puntel
+! 	Programa de Pós-Graduação em Informática (Semestre 2016/2)
+!	Universidade Federal de Santa Maria
+! Funções: droplet(), model2d()
+! 	Traducao da funcao ndgrid do Matlab para o Fortran
+! 	Tradutora: Sabrina Sambati (CAP/INPE)
 !***********************************************************************
 
 PROGRAM main
@@ -15,11 +20,11 @@ END PROGRAM main
 
 MODULE KfsFunctions
 !    use Globais
-     integer*4 nj/9500/, ni/9500/
+     integer*4 nj/100/, ni/100/
 
-     real qGl(9500, 9500)
-     real uGl(9500, 9500)
-     real vgl(9500, 9500)
+     real qGl(100, 100)
+     real uGl(100, 100)
+     real vgl(100, 100)
 
 CONTAINS
 
@@ -66,11 +71,12 @@ CONTAINS
 	CALL criacaoMatrizes()
 
 	print *, "#### Inicio do Model2d ####"
-	!model2d(dx, dy, dt, ni, nj, Hmean, rq, ru, rv, f, g)
-	!model2d(f , f , i , i , i , i    , d , d , d , d, d)	
-	!real(x,8)
 	CALL model2d(real (1.0, 8), real (1.0, 8), 1, ni, nj, 1, real (1.0, 8), real (1.0, 8), real (1.0, 8), real (1.0, 8), real (1.0, 8))
 	print *, "#### Final do Model2d ####"
+
+	print *, "#### Inicio salvar em arquivo ###"
+	CALL salvarDados()
+	print *, "#### Final salvar em arquivo ###"
 
 	RETURN
    END SUBROUTINE
@@ -79,35 +85,35 @@ CONTAINS
 	integer :: i, j			
 	print *, "#### Inicio da criacao das Matrizes ####"
 
-	call random_seed() 
+	call random_seed()
 
-	!$OMP PARALLEL
-		!$OMP DO
+	!!$OMP PARALLEL
+	!	!$OMP DO
 		! Matriz uGl
 		do i = 1, ni - 1 
 		    do j = 1, nj - 1 
-		        call random_number(uGl(i,j)) 
+			call random_number(uGl(i,j)) 
 		    enddo
 		enddo
-		!$OMP END DO
+	!	!$OMP END DO
 
-		!$OMP DO
+	!	!$OMP DO
 		do i = 1, ni - 1 
 		    do j = 1, nj - 1 
 		         call random_number(vGl(i,j))
 		    enddo
 		enddo
-		!$OMP END DO
+	!	!$OMP END DO
 
-		!$OMP DO
+	!	!$OMP DO
 		! Matriz qGl 
 		 do i = 1, ni - 1 
 		    do j = 1, nj - 1 
 		        call random_number(qGl(i,j))
 		    enddo
 		enddo	
-		!$OMP END DO
-	!$OMP END PARALLEL
+	!	!$OMP END DO
+	!!$OMP END PARALLEL
 
 	print *, "#### Final da criacao das matrizes ####"
 	RETURN
@@ -282,6 +288,25 @@ CONTAINS
         deallocate(vbar)
 
     END SUBROUTINE !model2d
+
+
+    SUBROUTINE salvarDados()
+	OPEN(1, FILE='vGlParalelizado.txt', STATUS='REPLACE')
+	do i = 1, ni !i = linha    
+            do j = 2, nj-1  !j= coluna
+		OPEN(1, FILE='vGlParalelizado.txt', STATUS='old')
+                WRITE(1,*) vGl(i,j)
+            enddo
+        enddo
+
+	OPEN(1, FILE='uGlParalelizado.txt', STATUS='REPLACE')
+	do i = 1, ni !i = linha    
+            do j = 2, nj-1  !j= coluna
+		OPEN(1, FILE='uGlParalelizado.txt', STATUS='old')
+                WRITE(1,*) uGl(i,j)
+            enddo
+        enddo
+    END SUBROUTINE
 
     !***********************************************************************
     ! Returns the inverse of a matrix calculated by finding the LU
