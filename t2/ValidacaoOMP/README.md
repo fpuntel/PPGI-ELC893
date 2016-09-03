@@ -9,4 +9,4 @@ As matrizes resultantes (uGl e vGl) foram salvas em arqivos de texto e após iso
 Agora ilustrado abaixo, as matrizes utilizado openMP
 
 ![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/ValidacaoOMP/uGlCom.png)
-![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/ValidacaoOMP/vGlCom.png)
+![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/ValidacaoOMP/vglCom.png)
