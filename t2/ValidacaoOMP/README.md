@@ -1,4 +1,5 @@
 # Avaliação do OpenMP
+
 Foram realizado dois experimentos, primeiro foi realizado uma execução sequencial e após os resultados obtidos, foi realizada uma nova execução paralelizada com openMP. Para ter certeza que todas as entradas de dados fossem iguais, a construção das matrizes uGl, vGl e qGl não foram paralelizadas e foram utilizado a mesma semente para a geração randômica de dados, em ambos os experimentos foram utilizados matrizes 100x100.
 
 As matrizes resultantes (uGl e vGl) foram salvas em arqivos de texto e após iso, carregadas e plotadas em gráficos no octave (arquivo plotarGraficos.m). Abaixo ilustrado as matrizes uGl e vGl em execução sequencial. 
@@ -17,3 +18,14 @@ Agora ilustrado abaixo, as matrizes utilizado openMP
 <p align="center">Figura 4. Matriz vGl com paralelizacao</p>
 
 Com os resultados obtidos, é possível observar que a paralelização está funcioanndo perfeitamente e não está comprometendo o resultado final.
+
+## Explicação dos arquivos
+ 	- kfsFunctions.f90: código sem paralelização
+ 	- kfsFunctions_v2.f90: código com paralelização
+ 	- plotarGraficos.m: arquivo para plotar gráficos no octave
+ 	- uGl.txt: matriz final uGl sem paralelismo
+ 	- uGlParalelizado.txt: matriz final uGl com paralelismo
+ 	- vGl.txt: matriz final vGl sem paralelismo
+ 	- vGlParalelizado.txt: matriz final vGl com paralelismo
+ 	- Arquivos .png: imagens resultantes
+ 	- Arquivos .txt: valores finais da matrizes
