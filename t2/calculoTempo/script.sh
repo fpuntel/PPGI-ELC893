@@ -57,15 +57,15 @@ echo "Tempo medio: " $tempoMedio >>  comParelismoSemCriacao.txt
 
 
 ## Cricao matrizes md
-echo "# Matrizes comparando tempo médio com e sem paralelismo" > comparacao.md
-echo "Comparação dos resultados executando com três tipos de execuções:" >> comparacao.md
-echo " - Sem paralelismo: execução sequencial;" >> comparacao.md
-echo " - Com paralelismo (Completo): execução com paralelismo openMP;" >> comparacao.md
-echo " - Com paralelismo: execução com paralelismo, porém, a parte de criação das matrizes de entrada não é paralelizada." >> comparacao.md
-echo " " >> comparacao.md
+echo "# Matrizes comparando tempo médio com e sem paralelismo" > README.md
+echo "Comparação dos resultados executando com três tipos de execuções:" >> README.md
+echo " - Sem paralelismo: execução sequencial;" >> README.md
+echo " - Com paralelismo (Completo): execução com paralelismo openMP;" >> README.md
+echo " - Com paralelismo: execução com paralelismo, porém, a parte de criação das matrizes de entrada não é paralelizada." >> README.md
+echo " " >> README.md
 
-echo "| Sem Paralelismo | Com Paralelismo (Completo) | Com Paralismo" >> comparacao.md
-echo "|---|---|---|" >> comparacao.md
+echo "| Sem Paralelismo | Com Paralelismo (Completo) | Com Paralismo" >> README.md
+echo "|---|---|---|" >> README.md
 
 #sParalelismo=`cat semParalelismo.txt | wc -l`
 #cParalelismoCompleto=`cat comParelismo.txt | wc -l`
@@ -80,6 +80,6 @@ do
 	cPc=`cat comParelismo.txt | head -$i | tail -n1`
 	cP=`cat comParelismoSemCriacao.txt | head -$i | tail -n1`
 
-	echo "|" $sP " |" $cPc " |" $cP " |" >> comparacao.md
+	echo "|" $sP " |" $cPc " |" $cP " |" >> README.md
 	i=`expr $i + 1`
 done
