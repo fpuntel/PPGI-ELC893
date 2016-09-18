@@ -19,6 +19,16 @@ Agora ilustrado abaixo, as matrizes utilizado openMP
 
 Com os resultados obtidos, visualmente é possível observar que a paralelização está funcioanndo perfeitamente e não está comprometendo o resultado final.
 
+# Atualização dos resultados obtidos
+
+Para comprovação dos resultados obtidos, foi aplicado a técnica l^2 norm, que é conhecida como mínimos quadrados. Basicamente, é minimizar a soma dos quadrados das diferenças.
+
+Resultados obtidos:
+
+norm(uGl - uGlParalelizado): 7.3100e-07
+norm(vGl - vGlParalelizado): 9.3200e-07
+
+
 ## Explicação dos arquivos
  	- kfsFunctions.f90: código sem paralelização
  	- kfsFunctions_v2.f90: código com paralelização

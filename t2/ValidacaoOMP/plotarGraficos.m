@@ -12,14 +12,12 @@ load vGl.txt;
 who;            
 vGl;
 
-# Plot com paralelizacao
+# Com paralelizacao
  load uGlParalelizado.txt;
  who;            
  uGlParalelizado;
 
- vGl(1000,1)
- vGlParalelizado(1000,1)
-  
+# Calculo norm  
 load vGlParalelizado.txt;
 who;            
 vGlParalelizado;

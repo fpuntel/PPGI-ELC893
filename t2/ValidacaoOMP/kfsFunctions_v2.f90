@@ -91,6 +91,7 @@ CONTAINS
 	do i = 1, ni - 1 
 	    do j = 1, nj - 1 
 		call random_number(uGl(i,j)) 
+		!uGl(i,j) = uGl(i,j) + 0.1
 	    enddo
 	enddo
 
