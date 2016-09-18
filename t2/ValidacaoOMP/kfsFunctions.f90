@@ -20,10 +20,10 @@ END PROGRAM main
 
 MODULE KfsFunctions
 !    use Globais
-     integer*4 nj/100/, ni/100/
-     real qGl(100, 100)
-     real uGl(100, 100)
-     real vgl(100, 100)
+     integer*4 nj/400/, ni/400/
+     real qGl(400, 400)
+     real uGl(400, 400)
+     real vgl(400, 400)
 
 CONTAINS
 
@@ -265,6 +265,7 @@ CONTAINS
                 WRITE(1,*) uGl(i,j)
             enddo
         enddo
+
     END SUBROUTINE
 
     !***********************************************************************

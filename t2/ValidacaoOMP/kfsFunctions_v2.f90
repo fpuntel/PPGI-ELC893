@@ -9,7 +9,7 @@
 !***********************************************************************
 
 PROGRAM main
-	USE KfsFunctions
+	USE KfsFunctionsPara
 	real :: start, finish
 
 	call cpu_time(start)
@@ -18,13 +18,13 @@ PROGRAM main
         print '("Time = ",f6.3," seconds.")',finish-start
 END PROGRAM main
 
-MODULE KfsFunctions
+MODULE KfsFunctionsPara
 !    use Globais
-     integer*4 nj/100/, ni/100/
+     integer*4 nj/400/, ni/400/
 
-     real qGl(100, 100)
-     real uGl(100, 100)
-     real vgl(100, 100)
+     real qGl(400, 400)
+     real uGl(400, 400)
+     real vgl(400, 400)
 
 CONTAINS
 
@@ -87,33 +87,25 @@ CONTAINS
 
 	call random_seed()
 
-	!!$OMP PARALLEL
-	!	!$OMP DO
-		! Matriz uGl
-		do i = 1, ni - 1 
-		    do j = 1, nj - 1 
-			call random_number(uGl(i,j)) 
-		    enddo
-		enddo
-	!	!$OMP END DO
+	! Matriz uGl
+	do i = 1, ni - 1 
+	    do j = 1, nj - 1 
+		call random_number(uGl(i,j)) 
+	    enddo
+	enddo
 
-	!	!$OMP DO
-		do i = 1, ni - 1 
-		    do j = 1, nj - 1 
-		         call random_number(vGl(i,j))
-		    enddo
-		enddo
-	!	!$OMP END DO
+	do i = 1, ni - 1 
+	    do j = 1, nj - 1 
+	         call random_number(vGl(i,j))
+	    enddo
+	enddo
 
-	!	!$OMP DO
-		! Matriz qGl 
-		 do i = 1, ni - 1 
-		    do j = 1, nj - 1 
-		        call random_number(qGl(i,j))
-		    enddo
-		enddo	
-	!	!$OMP END DO
-	!!$OMP END PARALLEL
+	! Matriz qGl 
+	 do i = 1, ni - 1 
+	    do j = 1, nj - 1 
+	        call random_number(qGl(i,j))
+	    enddo
+	enddo	
 
 	print *, "#### Final da criacao das matrizes ####"
 	RETURN
