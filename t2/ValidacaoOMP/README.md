@@ -26,6 +26,7 @@ Para comprovação dos resultados obtidos, foi aplicado a técnica l^2 norm, que
 Resultados obtidos:
 
 norm(uGl - uGlParalelizado): 7.3100e-07
+
 norm(vGl - vGlParalelizado): 9.3200e-07
 
 
