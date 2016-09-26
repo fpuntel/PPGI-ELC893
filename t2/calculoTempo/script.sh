@@ -1,6 +1,6 @@
 #!/bin/bash
 
-qtdRodadas=40
+qtdRodadas=20
 
 # Exclui dados antigos
 rm semParelismo.txt 

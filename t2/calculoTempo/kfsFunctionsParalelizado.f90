@@ -23,11 +23,11 @@ END PROGRAM main
 
 MODULE KfsFunctionsPara
 !    use Globais
-     integer*4 nj/11000/, ni/11000/
+     integer*4 nj/9500/, ni/9500/
 
-     real qGl(11000, 11000)
-     real uGl(11000, 11000)
-     real vgl(11000, 11000)
+     real qGl(9500, 9500)
+     real uGl(9500, 9500)
+     real vgl(9500, 9500)
 
 CONTAINS
 
