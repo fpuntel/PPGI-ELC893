@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Script shell para executar os três tipos de experimentos:
+# - Sem paralelismo
+# - Com paralelismo total
+# - Com parlelismo parcial (somente a criação não é paralelizada)
+# Ao final o script gera o arquivo README.md com uma tabela comparando
+# os valores dos três experimentos, com suas médias, respectivamente.
+# Fernando Emilio Puntel
+# Programa de pós-graduação em Informática
+# Universidade Federal de Santa Maria
+# 09-2016
+
 qtdRodadas=20
 
 # Exclui dados antigos
@@ -67,9 +78,6 @@ echo " " >> README.md
 echo "| Sem Paralelismo | Com Paralelismo (Completo) | Com Paralismo" >> README.md
 echo "|---|---|---|" >> README.md
 
-#sParalelismo=`cat semParalelismo.txt | wc -l`
-#cParalelismoCompleto=`cat comParelismo.txt | wc -l`
-#cParalelismo=`cat semParalelismoSemCriacao.txt | wc -l`
 
 i=1
 controle=`expr $qtdRodadas + 1`
