@@ -1,7 +1,7 @@
 # Matrizes comparando tempo médio com e sem paralelismo
 Comparação dos resultados executando com dois tipos de execuções:
  - Sem paralelismo: execução sequencial;
- - Com paralelismo (MP Section): execução com paralelismo openMP section;
+ - Com paralelismo (OMP Section): execução com paralelismo openMP section;
  
 | Sem Paralelismo | Com Paralelismo (OMP Section) | 
 |---|---|
