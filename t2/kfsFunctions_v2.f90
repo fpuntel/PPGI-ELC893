@@ -9,7 +9,7 @@
 !***********************************************************************
 
 PROGRAM main
-	USE KfsFunctions
+	USE KfsFunctionsDo
 	real :: start, finish
 
 	call cpu_time(start)
@@ -18,7 +18,7 @@ PROGRAM main
         print '("Time = ",f6.3," seconds.")',finish-start
 END PROGRAM main
 
-MODULE KfsFunctions
+MODULE KfsFunctionsDo
 !    use Globais
      integer*4 nj/9500/, ni/9500/
 

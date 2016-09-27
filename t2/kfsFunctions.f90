@@ -9,11 +9,11 @@
 !***********************************************************************
 
 PROGRAM main
-!	USE KfsFunctions
+	USE KfsFunctions
 !	real :: start, finish
         
 	call cpu_time(start)
-!	CALL inicio ()
+	CALL inicio ()
         call cpu_time(finish)
         print '("Time = ",f6.3," seconds.")',finish-start
 END PROGRAM main
