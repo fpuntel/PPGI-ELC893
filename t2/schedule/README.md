@@ -28,3 +28,31 @@ Comparação com diferentes tipos de configurações no escalonador:
 | 17.7040005  | 18.4799995  | 18.0000000  | 18.6159992  | 
 | 17.5079994  | 18.4960003  | 17.8519993  | 18.4319992  | 
 | Tempo medio: 17.9696  | Tempo medio: 18.0632  | Tempo medio: 18.1036  | Tempo medio: 17.9178  | 
+
+## Analise escalonadores no Intel Vtune
+
+O Intel Vtune foi utilizado para análise do uso da CPU e a carga de trabalho de cada thread.
+
+Número de CPUs utilizada:
+
+![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/schedule/imagens/CPUDynamic.png)
+<p align="center">Figura 1.  Uso CPU com Dynamic</p>
+
+![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/schedule/imagens/CPUGuided.png)
+<p align="center">Figura 2.  Uso CPU com Guided</p>
+
+![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/schedule/imagens/CPUStatic.png)
+<p align="center">Figura 3.  Uso CPU com Static</p>
+
+Carga de trabalho de cada thread:
+
+![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/schedule/imagens/PlatformDynamic.png)
+<p align="center">Figura 4.  Carga de trabalho de cada thread com Dynamic</p>
+
+![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/schedule/imagens/PlatformGuided.png)
+<p align="center">Figura 5.  Carga de trabalho de cada thread com Guided</p>
+
+![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/schedule/imagens/PlatformStatic.png)
+<p align="center">Figura 6.  Carga de trabalho de cada thread com Static</p>
+
+*Projeto para rodar no Intel Vtune: Schedule.tar.gz
