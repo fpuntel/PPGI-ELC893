@@ -41,6 +41,6 @@ norm(vGl - vGlParalelizado): 9.3200e-07
  	- Arquivos .png: imagens resultantes
  	- Arquivos .txt: valores finais da matrizes
   
-  # Compilação dos arquivos
- gfortran -fopenmp -o kfsFunctions kfsFunctions.f90
- gfortran -fopenmp -o kfsFunctions_v2 kfsFunctions_v2.f90
+# Compilação dos arquivos
+gfortran -fopenmp -o kfsFunctions kfsFunctions.f90
+gfortran -fopenmp -o kfsFunctions_v2 kfsFunctions_v2.f90
