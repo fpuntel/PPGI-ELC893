@@ -30,23 +30,23 @@ Comparação dos resultados executando com três tipos de execuções:
 
 # Avaliação utilização Intel Vtune Amplifier
 
-### Instalação Intel Vtune Amplifier
+### Instalação Intel Vtune Amplifier no Ubuntu
 
 O primeiro passo é fazer o download no site do Intel, neste caso, eu utilizei uuma versão de 30 dias para realizar os experimentos e avaliar o produto da Intel.
 
 Descompacte em um local de fácil acesso, por exemplo, /home ou /home/Documentos, no meu caso, perdi algum tempo, pois estava dando erro no local da instalação, pois havia descompactado em um local com mais sub-pastas.
 
-Depois de descompilar execute install_GUI.sh caso você tenha interface gráfica, caso contrário, execute somente o install.sh. O local padrão dos arquivos de instalação estarão em /opt/intel/vtune. Primeiro rode o seguinte comando:
+Depois de descompilar execute install_GUI.sh caso você tenha interface gráfica, caso contrário, execute somente o install.sh. O local padrão dos arquivos de instalação estarão em /opt/intel/vtune. Após a instalação, o primeiro é ir até a pasta de instalação e executar o seguinte comando:
 
 source <local de instalacao>|amplxe.vars.sh
 
-Agora para executar a aplicação vá em <local da instalação>/bin64 e rode ./ample_gui. Um observação importante, é que para executar algum projeto tive que editar o arquivo: /proc/sys/kernel/yama/ptrace_scope e colocar 0.
+Agora para executar a aplicação vá em <local da instalação>/bin64 e execute ./ample_gui. Um observação importante, é que para executar algum projeto tive que editar o arquivo: /proc/sys/kernel/yama/ptrace_scope e colocar 0.
 
 ### Resultados obtidos
 
-Foram executados os dois exemplos com paralelismo no Intel Vtune (Com paralelismo total e o parcial, onde a criação das matrizes não é paralelizada). Para analise foram tirados screenshots de um histograma e um gráfico. Um histograma comparando em quanto tempo a aplicação executou com 8 threads paralelas e uma imagem mostrando quanto a carga de trabalho de cada thread durante a execução.
+Foram executados os dois exemplos com paralelismo no Intel Vtune (Com paralelismo total e o parcial, onde a criação das matrizes não é paralelizada). Para análise foram tirados screenshots de um histograma e um gráfico. Um histograma comparando em quanto tempo a aplicação executou com um número variado de threads paralelas e uma imagem mostrando a carga de trabalho de cada thread durante a execução.
 
-Paralelismo total:
+**Paralelismo total**:
 
 ![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/calculoTempo/CPUUsageParalelizado.png)
 <p align="center">Figura 1. Histograma com paralelismo total mostrando por quanto tempo foram usadas mais threads na CPU </p>
@@ -54,7 +54,7 @@ Paralelismo total:
 ![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/calculoTempo/PlatformParalelizado.png)
 <p align="center">Figura 2.  Carga de trabalho de cada thread durante a execução</p>
 
-Paralelismo parcial:
+**Paralelismo parcial**:
 
 ![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/calculoTempo/CPUUsageSemCriacao.png)
 <p align="center">Figura 3. Histograma com paralelismo total mostrando por quanto tempo foram usadas mais threads na CPU </p>
