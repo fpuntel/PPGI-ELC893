@@ -40,3 +40,6 @@ norm(vGl - vGlParalelizado): 9.3200e-07
  	- vGlParalelizado.txt: matriz final vGl com paralelismo
  	- Arquivos .png: imagens resultantes
  	- Arquivos .txt: valores finais da matrizes
+  
+  # Compilação dos arquivos
+ gfortran -fopenmp -o kfsFunctions kfsFunctions.f90
