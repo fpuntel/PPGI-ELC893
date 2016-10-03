@@ -46,7 +46,7 @@ Agora para executar a aplicação vá em <local da instalação>/bin64 e rode ./
 
 Foram executados os dois exemplos com paralelismo no Intel Vtune (Com paralelismo total e o parcial, onde a criação das matrizes não é paralelizada). Para analise foram tirados screenshots de um histograma e um gráfico. Um histograma comparando em quanto tempo a aplicação executou com 8 threads paralelas e uma imagem mostrando quanto a carga de trabalho de cada thread durante a execução.
 
-Paralelismo total:
+**Paralelismo total**:
 
 ![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/calculoTempo/CPUUsageParalelizado.png)
 <p align="center">Figura 1. Histograma com paralelismo total mostrando por quanto tempo foram usadas mais threads na CPU </p>
@@ -54,7 +54,7 @@ Paralelismo total:
 ![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/calculoTempo/PlatformParalelizado.png)
 <p align="center">Figura 2.  Carga de trabalho de cada thread durante a execução</p>
 
-Paralelismo parcial:
+**Paralelismo parcial**:
 
 ![Alt Text](https://github.com/fpuntel/PPGI-ELC893/blob/master/t2/calculoTempo/CPUUsageSemCriacao.png)
 <p align="center">Figura 3. Histograma com paralelismo total mostrando por quanto tempo foram usadas mais threads na CPU </p>
