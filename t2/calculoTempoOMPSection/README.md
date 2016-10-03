@@ -26,3 +26,7 @@ Comparação dos resultados executando com dois tipos de execuções:
 | 19.6879997  | 56.3255454  | 
 | 19.7360001  | 57.5666664  | 
 | Tempo medio: 19.2954  | Tempo medio: 57.8438  | 
+
+Compilação dos arquivos:
+gfortran -fopenmp -o kfsFunctions kfsFunctions.f90
+gfortran -fopenmp -o kfsFunctions_OMP kfsFunctions_OMP.f90
