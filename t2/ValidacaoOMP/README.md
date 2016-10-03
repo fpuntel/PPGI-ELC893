@@ -43,3 +43,4 @@ norm(vGl - vGlParalelizado): 9.3200e-07
   
   # Compilação dos arquivos
  gfortran -fopenmp -o kfsFunctions kfsFunctions.f90
+ gfortran -fopenmp -o kfsFunctions_v2 kfsFunctions_v2.f90
