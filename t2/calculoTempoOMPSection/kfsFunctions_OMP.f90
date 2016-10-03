@@ -20,10 +20,10 @@ END PROGRAM main
 
 MODULE KfsFunctionsOMP
 !    use Globais
-     integer*4 nj/11000/, ni/11000/
-     real qGl(11000, 11000)
-     real uGl(11000, 11000)
-     real vgl(11000, 11000)
+     integer*4 nj/9000/, ni/9000/
+     real qGl(9000, 9000)
+     real uGl(9000, 9000)
+     real vgl(9000, 9000)
      character(10) :: time, time2 ! Timer
 
 CONTAINS

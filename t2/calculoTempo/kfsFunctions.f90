@@ -10,6 +10,7 @@
 
 PROGRAM main
 	USE KfsFunctions
+	use omp_lib
 	real :: start, finish
         
 	call cpu_time(start)
@@ -26,6 +27,7 @@ END PROGRAM main
 MODULE KfsFunctions
 !    use Globais
      integer*4 nj/9500/, ni/9500/
+
      real qGl(9500, 9500)
      real uGl(9500, 9500)
      real vgl(9500, 9500)

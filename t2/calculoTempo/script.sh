@@ -11,12 +11,17 @@
 # Universidade Federal de Santa Maria
 # 09-2016
 
-qtdRodadas=20
+qtdRodadas=3
 
 # Exclui dados antigos
 rm semParelismo.txt 
 rm comParelismo.txt
 rm comParelismoSemCriacao.txt
+
+# Compilação
+gfortran -fopenmp -o kfsFunctions kfsFunctions.f90
+gfortran -fopenmp -o kfsFunctionsParalelizado kfsFunctionsParalelizado.f90
+gfortran -fopenmp -o comParelismoSemCriacao comParelismoSemCriacao.f90
 
 # Execucao sem paralelismo
 i=1

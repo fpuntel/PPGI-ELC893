@@ -10,6 +10,7 @@
 
 PROGRAM main
 	USE KfsFunctionsPara
+	use omp_lib
 	real :: start, finish
 
 	call cpu_time(start)
