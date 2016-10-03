@@ -1,7 +1,7 @@
 # Matrizes comparando tempo médio com e sem paralelismo
 Comparação dos resultados executando com dois tipos de execuções:
  - Sem paralelismo: execução sequencial;
- - Com paralelismo (MP Section): execução com paralelismo openMP section;
+ - Com paralelismo (OMP Section): execução com paralelismo openMP section;
  
 | Sem Paralelismo | Com Paralelismo (OMP Section) | 
 |---|---|
@@ -25,4 +25,4 @@ Comparação dos resultados executando com dois tipos de execuções:
 | 18.9120007  | 57.9655444  |
 | 19.6879997  | 56.3255454  | 
 | 19.7360001  | 57.5666664  | 
-| Tempo medio: 19.2954  | Tempo medio: 57,8438  | 
+| Tempo medio: 19.2954  | Tempo medio: 57.8438  | 
