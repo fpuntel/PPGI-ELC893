@@ -25,10 +25,10 @@ Material para ler e realizar consultas.
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs
  - Getting started with ATLAS, BLAS and LAPACK - http://www.lindonslog.com/programming/atlas-blas-lapack-linear-algebra-libraries/
 
- ##### Fóruns
+##### Fóruns
  - http://stackoverflow.com/questions/10025866/parallel-linear-algebra-for-multicore-system
  - http://stackoverflow.com/questions/11230067/large-matrix-inversion
  - Example: http://stackoverflow.com/questions/28057585/blas-atlas-lapack-shared-library-minimal-example
 
- ##### Observações
+##### Observações
  - Compiladores 90 aceitam códigos baseados em compiladores mais antigos (FORTRAN N77 e FORTRAN 77).
