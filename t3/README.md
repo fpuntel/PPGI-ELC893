@@ -15,6 +15,7 @@ PLASMA: Biblioteca para Fortran e C, projetado para ser eficiênte em cores homo
 ScaLAPACK: é uma biblioteca de alta performace usada em rotinas de algebra linear para máquinas com memória distribuida uitlizada por programação paralela.
  
  ### Material para referência 
+ 
  ##### Artigos
   - Parallel Out-of-Corte Matrix Inversion - http://lara.inist.fr/bitstream/handle/2332/784/RR2002-04.pdf?sequence=1
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs - http://www.hpca.uji.es/ficheros/remon/pdp11.pdf
