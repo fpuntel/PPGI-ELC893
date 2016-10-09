@@ -18,7 +18,7 @@ ScaLAPACK: é uma biblioteca de alta performace usada em rotinas de algebra line
 Material para ler e realizar consultas.
 
 ##### Artigos
-  - Parallel Out-of-Corte Matrix Inversion - http://lara.inist.fr/bitstream/handle/2332/784/RR2002-04.pdf?sequence=1
+ - Parallel Out-of-Corte Matrix Inversion - http://lara.inist.fr/bitstream/handle/2332/784/RR2002-04.pdf?sequence=1
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs - http://www.hpca.uji.es/ficheros/remon/pdp11.pdf
  - High Performance Matrix Inversion Based on LU Factorization for Multicore Architectures- http://delivery.acm.org/10.1145/2140000/2132885/p33-dongarra.pdf?ip=200.132.24.254&id=2132885&acc=ACTIVE%20SERVICE&key=344E943C9DC262BB%2EA6F93EA56D23A081%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=847927293&CFTOKEN=60056616&__acm__=1475701823_ebb52ce195fcbc06de3862344ff1d0f5
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs - http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5738989
