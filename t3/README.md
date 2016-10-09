@@ -19,9 +19,9 @@ Material para ler e realizar consultas.
 
 ##### Artigos
  - Parallel Out-of-Corte Matrix Inversion - http://lara.inist.fr/bitstream/handle/2332/784/RR2002-04.pdf?sequence=1
-	Implementado utilizando biblioteca ScaLAPACK. 
+	- Implementado utilizando biblioteca ScaLAPACK. 
  - High Performance Matrix Inversion Based on LU Factorization for Multicore Architectures- http://www.netlib.org/utk/people/JackDongarra/PAPERS/High-Performance-Matrix-Inversion-Based-on-LU-Factorization.pdf
-	Implementado utilizando biblioteca LAPACK. 
+	- Implementado utilizando biblioteca LAPACK. 
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs - http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5738989
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs
  - Getting started with ATLAS, BLAS and LAPACK - http://www.lindonslog.com/programming/atlas-blas-lapack-linear-algebra-libraries/
