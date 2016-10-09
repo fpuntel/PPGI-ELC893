@@ -19,17 +19,23 @@ Material para ler e realizar consultas.
 
 ##### Artigos
  - Parallel Out-of-Corte Matrix Inversion - http://lara.inist.fr/bitstream/handle/2332/784/RR2002-04.pdf?sequence=1
- - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs - http://www.hpca.uji.es/ficheros/remon/pdp11.pdf
- - High Performance Matrix Inversion Based on LU Factorization for Multicore Architectures- http://delivery.acm.org/10.1145/2140000/2132885/p33-dongarra.pdf?ip=200.132.24.254&id=2132885&acc=ACTIVE%20SERVICE&key=344E943C9DC262BB%2EA6F93EA56D23A081%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=847927293&CFTOKEN=60056616&__acm__=1475701823_ebb52ce195fcbc06de3862344ff1d0f5
+	Implementado utilizando biblioteca ScaLAPACK. 
+ - High Performance Matrix Inversion Based on LU Factorization for Multicore Architectures- http://www.netlib.org/utk/people/JackDongarra/PAPERS/High-Performance-Matrix-Inversion-Based-on-LU-Factorization.pdf
+	Implementado utilizando biblioteca LAPACK. 
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs - http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5738989
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs
  - Getting started with ATLAS, BLAS and LAPACK - http://www.lindonslog.com/programming/atlas-blas-lapack-linear-algebra-libraries/
+
+##### Apresentações
+ - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs - http://www.hpca.uji.es/ficheros/remon/pdp11.pdf
+	Implementado utilizando LAPACK
 
 ##### Fóruns
  - http://stackoverflow.com/questions/10025866/parallel-linear-algebra-for-multicore-system
  - http://stackoverflow.com/questions/11230067/large-matrix-inversion
  - Example: http://stackoverflow.com/questions/28057585/blas-atlas-lapack-shared-library-minimal-example
 
+#### Implementações
+
 ##### Observações
  - Compiladores 90 aceitam códigos baseados em compiladores mais antigos (FORTRAN N77 e FORTRAN 77).
-
