@@ -40,11 +40,16 @@ Material para ler e realizar consultas.
  - http://stackoverflow.com/questions/11230067/large-matrix-inversion
  - Example: http://stackoverflow.com/questions/28057585/blas-atlas-lapack-shared-library-minimal-example
 
-#### Implementações
- - Plasma:
-	- http://icl.cs.utk.edu/plasma/docs/example__dgeqrf_8c.html
-	- https://github.com/irfu/whamp/blob/master/src/typin.f90
+#### Implementações e Instalações
+ - Implementações:
+	- Plasma:
+		- http://icl.cs.utk.edu/plasma/docs/example__dgeqrf_8c.html
+		- https://github.com/irfu/whamp/blob/master/src/typin.f90
+ - Instalações:
+	- Lapack (Incluindo Blas): https://www.youtube.com/watch?v=5N1QYWxAAL4
+	- Lapack (Incluindo Blas): https://www.youtube.com/watch?v=Wp0cHUiOHTQ
+	- Compputação avançada em Fortran com Lapack: https://www.youtube.com/watch?v=6o8HdaCSssk
+	- Palestra Blas e Lapack: https://www.youtube.com/watch?v=cOv8ujsT9GI
 
 ##### Observações
  - Compiladores 90 aceitam códigos baseados em compiladores mais antigos (FORTRAN N77 e FORTRAN 77).
- 
