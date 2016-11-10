@@ -13,6 +13,8 @@ LAPACK: escrito em Fortran 90 e fornece rotinas para resolver sistemas de simula
 PLASMA: Biblioteca para Fortran e C, projetado para ser eficiênte em cores homogêneas. Utiliza escalonamento simples mas ainda eficiênte para framework de aplicações com algebra. Plasma é uma reimplmenetação do Lapack e Scalapack para arquiteturas multicore. Plasma exporta paralelismo em nível de forma de thread. 
 
 ScaLAPACK: é uma biblioteca de alta performace usada em rotinas de algebra linear para máquinas com memória distribuida uitlizada por programação paralela.
+
+Intel MKL (Math Kernel Library): https://software.intel.com/en-us/intel-mkl
  
 ### Material para referência 
 Material para ler e realizar consultas.
@@ -22,7 +24,9 @@ Material para ler e realizar consultas.
 	- Implementado utilizando biblioteca ScaLAPACK. 
 	- Apresentação: http://datasys.cs.iit.edu/events/MTAGS11/s04.pdf
  - High Performance Matrix Inversion Based on LU Factorization for Multicore Architectures- http://www.netlib.org/utk/people/JackDongarra/PAPERS/High-Performance-Matrix-Inversion-Based-on-LU-Factorization.pdf
-	- Implementado utilizando biblioteca LAPACK. 
+	- Implementado utilizando biblioteca LAPACK, ScaLAPACK, PLASMA e Intel MKL. 
+	- Matriz 24000 x 24000.
+	- Comparação utilizando diferentes bibliotecas e arquiteturas.
  - High Performance Matrix Inversion on a Multi-core Platform with Several GPUs - http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5738989
 	- Implmentado utilizando bibliote LAPACK, mas utiliza GPU.
  - Numerical Linear Algebra on Emerging Architectures: the PLASMA and MAGMA Projects : http://icl.cs.utk.edu/news_pub/submissions/plasma-scidac09.pdf
