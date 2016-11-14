@@ -50,6 +50,9 @@ Material para ler e realizar consultas.
 		- http://icl.cs.utk.edu/plasma/docs/example__dgeqrf_8c.html
 		- https://github.com/irfu/whamp/blob/master/src/typin.f90
  - Instalações:
+     	- ScaLapack: 
+		- wget http://netlib.org/scalapack/scalapack-2.0.0.tgz
+		- Instalação: http://aragorn.pb.bialystok.pl/~mars/tutorial/scalapack/
 	- Lapack (Incluindo Blas): https://www.youtube.com/watch?v=5N1QYWxAAL4
 	- Lapack (Incluindo Blas): https://www.youtube.com/watch?v=Wp0cHUiOHTQ
 	- Compputação avançada em Fortran com Lapack: https://www.youtube.com/watch?v=6o8HdaCSssk
