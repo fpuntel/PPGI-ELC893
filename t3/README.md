@@ -6,6 +6,13 @@
  - ATLAS (Automatically Tuned Linear Algebra Software) - http://math-atlas.sourceforge.net/
  - ScaLAPACK (Scalable Linear Algebra PACKage) - http://www.netlib.org/scalapack/
  - BLAS (Basic Linear Algebra Subprograms) - http://www.netlib.org/blas/
+ 
+|                                 | LAPACK    | ScaLAPACK |   ATLAS   |                PLASMA               |
+|---------------------------------|-----------|-----------|:---------:|:-----------------------------------:|
+|        Inversão de Matriz       |     X     |     X     |     X     |                                     |
+| Inversão de Matriz Paralelizada |           |     X     |           | Processos  multicore e  multisocket |
+|       Função para Inversão      |   DGETRI  |  PSGETRI  |           |                                     |
+|         Suporte Fortran         | Fortran90 | Fortran90 | Fortran77 |                  X                  |
 
 ### Explicação
 LAPACK: escrito em Fortran 90 e fornece rotinas para resolver sistemas de simulações com equações lineares, minimos quadradso de equações lineares, etc. O principal objetivo do projeto LAPACK é fazer as bibliotecas EISPACK e LINPACK executarem de forma eficientemente com vetores de memória compartilhada e com processadores paralelos. LINPACK e EISPACK são inificiêntes porque o padrão de acesso à memória despreza a hierarquia de memória nas máquinas. As rotinas LAPACK são escritas de froma que é possível realizar o cálculo chamando Basic Linear Algebra Subprograms (BLAS).
