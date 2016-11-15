@@ -1,14 +1,14 @@
 # Estudo de bibliotecas matemáticas 
 
-#### Softwares disponíveis (Fazer tabela comparativa):
+#### Softwares disponíveis:
  - LAPACK (Linear Algebra PACKage) -  http://www.netlib.org/lapack/
  - PLASMA (Parallel Linear Algebra Software for Multicore Architectures) - https://bitbucket.org/icl/plasma
  - ATLAS (Automatically Tuned Linear Algebra Software) - http://math-atlas.sourceforge.net/
  - ScaLAPACK (Scalable Linear Algebra PACKage) - http://www.netlib.org/scalapack/
  - BLAS (Basic Linear Algebra Subprograms) - http://www.netlib.org/blas/
  
-|                                 | LAPACK    | ScaLAPACK |   ATLAS   |                PLASMA               |
-|---------------------------------|-----------|-----------|:---------:|:-----------------------------------:|
+|                                 |   LAPACK  | ScaLAPACK |   ATLAS   |                PLASMA               |
+|:-------------------------------:|:---------:|:---------:|:---------:|:-----------------------------------:|
 |        Inversão de Matriz       |     X     |     X     |     X     |                                     |
 | Inversão de Matriz Paralelizada |           |     X     |           | Processos  multicore e  multisocket |
 |       Função para Inversão      |   DGETRI  |  PSGETRI  |           |                                     |
