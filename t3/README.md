@@ -65,7 +65,7 @@ Material para ler e realizar consultas.
 
 ### SCALAPACK
 - Função inversão de matriz (https://software.intel.com/en-us/node/521485): 
-		- PSGETRI: utiliza LU fatorização resultante da funcão PSGETRF (http://www.netlib.org/scalapack/explore-html/d1/d25/psgetri_8f_source.html).
-		- PSPOTRI: Calcula o inverso de uma matriz hermitiana/simétrica distribuída 
-		- PSTRTRI: calcula o inverso de uma matriz triangular
+	- PSGETRI: utiliza LU fatorização resultante da funcão PSGETRF (http://www.netlib.org/scalapack/explore-html/d1/d25/psgetri_8f_source.html).
+	- PSPOTRI: Calcula o inverso de uma matriz hermitiana/simétrica distribuída 
+	- PSTRTRI: calcula o inverso de uma matriz triangular
 		
