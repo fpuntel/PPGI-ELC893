@@ -1,6 +1,6 @@
 # Estudo de bibliotecas matemáticas 
 
-#### Softwares disponíveis:
+#### Bibliotecas disponíveis:
  - LAPACK (Linear Algebra PACKage) -  http://www.netlib.org/lapack/
  - PLASMA (Parallel Linear Algebra Software for Multicore Architectures) - https://bitbucket.org/icl/plasma
  - ATLAS (Automatically Tuned Linear Algebra Software) - http://math-atlas.sourceforge.net/
@@ -55,6 +55,7 @@ Material para ler e realizar consultas.
  - Implementações:
         - LAPACK:
 		- http://fortranwiki.org/fortran/show/Matrix+inversion
+		- https://software.intel.com/en-us/node/520946 
 	- Plasma:
 		- http://icl.cs.utk.edu/plasma/docs/example__dgeqrf_8c.html
 		- https://github.com/irfu/whamp/blob/master/src/typin.f90
