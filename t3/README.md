@@ -11,7 +11,7 @@
 |:-------------------------------:|:---------:|:---------:|:---------:|:-----------------------------------:|
 |        Inversão de Matriz       |     X     |     X     |     X     |                                     |
 | Inversão de Matriz Paralelizada |           |     X     |           | Processos  multicore e  multisocket |
-|       Função para Inversão      |   DGETRI  |  PSGETRI  |           |                                     |
+|       Função para Inversão      |   ?GETRI  |  ?GETRI   |           |                                     |
 |         Suporte Fortran         | Fortran90 | Fortran90 | Fortran77 |                  X                  |
 
 ### Explicação
