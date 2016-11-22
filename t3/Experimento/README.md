@@ -15,8 +15,7 @@
 
 
 
-| POSICAO MATRIZ 
-(RODADA) | OCTAVE | FORTRAN |
+| POSICAO MATRIZ (RODADA) | OCTAVE | FORTRAN |
 |---|---|---|---|
 | 5x5 (1)  | 48.171  | 47.730  | 
 | 50x50 (1)  | 33.778  | 33.250  | 
