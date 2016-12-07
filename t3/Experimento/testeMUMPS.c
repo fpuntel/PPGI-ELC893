@@ -17,19 +17,16 @@ typedef struct
         double a[T*T];
 }mumps_matrix;
 
-
 int main(){
         mumps_matrix A;
         DMUMPS_STRUC_C id;
         int i;
-
-
+        
         // set matrix
         for (i = 0; i < T; i++){
                 A.irn[i] = i;
                 A.jcn[i] = i;
         }
-
 
         A.a[0] = 5;
         A.a[1] = 8;
@@ -37,8 +34,6 @@ int main(){
         A.a[3] = 3;
 
         //printf("%f\n %f\n %f\n %f\n", A.a[0], A.a[1], A.a[2], A.a[3]);
-
-
         id.n = 4;
         id.nz = 4;
         id.irn = A.irn;
